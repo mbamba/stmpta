@@ -1,0 +1,47 @@
+<div class="container" ng-controller="VolunteeringController">
+    <div class="row">
+        <div class="col-xs-12">
+            <ul class="breadcrumb">
+                <li><a ui-sref="app">Home</a></li>
+                <li class="active">Volunteering</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row row-content">
+        <div class="col-xs-12 col-sm-10">
+            <h2>PTA Volunteering Opportunities</h2>
+            <div ng-if="!showEvents">
+                <h3>{{message}}</h3>
+            </div>
+            <div class="media">
+                <ul class="media-list">
+                    <li class="media" ng-repeat="event in events">
+                        <div class="media-left media-top">
+                            <a ui-sref="app.volunteering"> <img
+                                class="media-object img-thumbnail"
+                                ng-src={{event.image}}>
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <div class="inline">
+                                <h3 class="media-heading">
+                                    {{event.name}} <span><small>{{event.designation}}</small></span>
+                                </h3>
+                            </div>
+                            <p>{{event.description}}</p>
+                            <p><span><small>Dates: {{event.dates}}</small></span></p>
+                            <p><span><small>Volunteers needed: {{event.volunteers_needed}}</small></span></p>
+                            <span class="label label-danger">Sign up!</span>
+                            <div class="col-xs-12 col-sm-3">
+                                <p style="padding: 20px;"></p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-3">
+            <p style="padding: 20px;"></p>
+        </div>
+    </div>
+</div>

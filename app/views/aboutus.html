@@ -1,0 +1,46 @@
+<div class="container" ng-controller="AboutController">
+    <div class="row">
+        <div class="col-xs-12">
+            <ul class="breadcrumb">
+                <li><a ui-sref="app">Home</a></li>
+                <li class="active">About Us</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row row-content">
+        <div class="col-xs-12 col-sm-10">
+            <h2>PTA Leadership</h2>
+            <div ng-if="!showLeaders">
+                <h3>{{message}}</h3>
+            </div>
+            <div class="media" ng-if="showLeaders">
+                <ul class="media-list">
+                    <li class="media" ng-repeat="leader in leaders">
+                        <div class="media-left media-top">
+                            <a ui-sref="app.aboutus"> <img
+                                class="media-object img-thumbnail"
+                                ng-src={{leader.image}}
+                                alt={{leader.abbr}}>
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <div class="inline">
+                                <h3 class="media-heading">
+                                    {{leader.name}} <span><small>{{leader.designation}}</small></span>
+                                </h3>
+                            </div>
+                            <p>{{leader.description}}</p>
+                            <p><span><small>Commitment: {{leader.commitment}} hours/year</small></span></p>
+                            <div class="col-xs-12 col-sm-3">
+                                <p style="padding: 20px;"></p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-3">
+            <p style="padding: 20px;"></p>
+        </div>
+    </div>
+</div>
